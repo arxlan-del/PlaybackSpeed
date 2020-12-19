@@ -6,14 +6,19 @@ $("#startSpeed").click(function (e) {
     console.log(text);
 
 
-    var myVideos = document.getElementsByTagName("video")
-    console.log(myVideos);
+    var searchList = [{test:text}]
+    var jsonSearchList = JSON.stringify(searchList);
 
-    for (let i = 0; i < myVideos.length; i++) {
-        myVideos[i].playbackRate = text
-    }
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            data: jsonSearchList
+        });
+    });
+
 });
-
 
 
 
