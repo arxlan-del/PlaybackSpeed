@@ -78,7 +78,7 @@ function sendSpeed(text){
     });
 }
 
-
+/*
 $("#rate").change(function (e) { 
     if (autocorrect == true) {
         document.getElementById("startSpeed").click()
@@ -88,11 +88,23 @@ $("#rate").change(function (e) {
     console.log("ı am rate");
     
 });
+*/
+$("#increase, #decrease").click(function (e) { 
+    if (autocorrect == true) {
+        document.getElementById("startSpeed").click()
+        console.log("working");
+    }
+    
+});
+
+
+
 
 
 $("#autoStart").click(function (e) { 
     if(e.target.checked == true){
         autocorrect = true
+
     }else{
         autocorrect = false
     }
